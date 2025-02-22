@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>albertomariapepe</title>
     <style>
-        /* Load the custom fonts */
+        /* Load the custom font */
         @font-face {
             font-family: 'ArcadeClassic';
             src: url('m42.TTF') format('truetype'); /* Ensure the file exists in the repo */
@@ -15,194 +15,247 @@
 
         @font-face {
             font-family: 'pixel';
-            src: url('MinecraftStandard.otf') format('opentype'); /* Correct format */
+            src: url('MinecraftStandard.otf') format('truetype'); /* Ensure the file exists in the repo */
             font-weight: normal;
             font-style: normal;
         }
 
         /* Default styles */
         body {
-            background-color: black;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-            font-family: 'pixel', sans-serif;
+            background-color: black; /* Set background color for fallback */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            overflow: auto; /* Allow scrolling */
+            font-family: pixel, sans-serif; /* Ensure pixel is used for the body */
         }
 
-        /* Background GIF */
+        /* Style for the tiled background */
         .background {
-            background: url('galo.gif') repeat;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            background-image: url('galo.gif'); /* Use the GIF as a background image */
+            background-repeat: repeat; /* Tile the background */
+            background-size: contain; /* Ensure the GIF is sized to fit within the div */
+            position: fixed; /* Position the background fixed to the viewport */
+            top: 0; /* Align to the top */
+            left: 0; /* Align to the left */
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            z-index: -1; /* Place behind other elements */
         }
 
-        /* Main content container */
+        /* Style for the central text container */
         .container {
-            max-width: 800px;
-            margin: 10px auto;
-            background-color: rgba(0, 0, 0, 0.9); /* Slight transparency */
-            padding: 20px;
-            border-radius: 10px;
-            color: white;
-            text-align: center;
+            max-width: 800px; /* Set a max width for the text container */
+            margin: auto; /* Center the container horizontally */
+            background-color: rgba(0, 0, 0, 1); /* Semi-transparent black background */
+            padding: 20px; /* Add padding around text */
+            border-radius: 0; /* No rounded corners */
+            position: relative; /* Position relative for inner content */
+            z-index: 1; /* Bring to front */
+            color: white; /* Text color */
+            display: flex; /* Use flexbox for centering content */
+            flex-direction: column; /* Stack children vertically */
+            justify-content: flex-start; /* Align content to the top */
         }
 
-        /* Name styling */
+        /* Style for name with equal padding */
         h1 {
-            font-family: 'ArcadeClassic', sans-serif;
-            border: 2px solid white;
-            display: inline-block;
-            padding: 10px 15px;
-            font-size: 6vw;
-            text-align: center;
+            font-family: 'ArcadeClassic', sans-serif; /* Use custom font for the name */
+            border: 2px solid white; /* Thinner border */
+            display: inline-block; /* Border wraps around text */
+            padding: 15px; /* Equal padding on all sides */
+            border-radius: 0; /* No rounded edges */
+            font-size: 2.5vw; /* Adjusted size for responsiveness */
+            text-align: center; /* Center align the name */
         }
 
-        /* Subtitle */
+        /* Center the PhD text */
         .phd-title {
-            font-size: 3.5vw;
-            margin: 10px 0;
+            text-align: center; /* Center align */
+            font-size: 1vw; /* Adjusted size for responsiveness */
+            margin: 10px 0; /* Space around the title */
         }
 
         /* Bio styling */
         .bio {
-            font-size: 2.5vw;
-            text-align: justify;
+            font-size: 0.7vw; /* Smaller font size for the bio */
+            margin: 1px 0; /* Add margin for spacing */
+            text-align: justify; /* Justify align the paragraphs */
         }
 
-        /* Section dividers */
-        .divider {
-            width: 100%;
-            height: 2px;
-            background-color: white;
-            margin: 10px 0;
-        }
-
-        /* Section titles */
-        .section-title {
-            font-family: 'ArcadeClassic', sans-serif;
-            font-size: 3.5vw;
-            text-align: left;
-            margin: 10px 0;
-        }
-
-        /* Section content */
-        .section-content {
-            font-size: 2.5vw;
-            text-align: left;
-        }
-
-        /* Lists */
-        ul {
-            padding-left: 15px;
-            font-size: 2.5vw;
-        }
-
-        /* Links */
         a {
-            color: #FF4500;
+            color: #FF4500; /* Reddish-orange color */
             text-decoration: none;
-            font-size: 2.5vw;
+            font-size: 0.6vw; /* Adjusted size for responsiveness */
         }
 
         a:hover {
             text-decoration: underline;
         }
 
-        /* Links section */
-        .links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
+        /* Style for the white line */
+        .divider {
+            width: 100%; /* Full width */
+            height: 2px; /* Height of the line */
+            background-color: white; /* Color of the line */
+            margin: 5px 0; /* Space around the line */
         }
 
-        .links p {
-            margin: 0;
-            display: inline;
+        /* Style for section titles */
+        .section-title {
+            font-family: 'ArcadeClassic', sans-serif; /* Use custom font for the titles */
+            font-size: 1.2vw; /* Size for section titles */
+            text-align: left; /* Left align the section titles */
+            margin: 5px 0; /* Space around section titles */
         }
 
-        /* Institution names */
+        /* Style for section content */
+        .section-content {
+            font-size: 0.7vw; /* Increased font size for better readability */
+            text-align: left; /* Left align the section content */
+            margin: 10px 0; /* Add margin for spacing */
+        }
+
+        /* Style for lists */
+        ul {
+            margin-left: 20px; /* Indent the list */
+            font-size: 0.7vw; /* Adjusted size for list items */
+            list-style-type: none; /* Remove default list style */
+            padding: 0; /* Remove default padding */
+        }
+
+        /* Style for institution names */
         .institution {
-            font-weight: bold;
-            color: #FF4500;
+            font-weight: bold; /* Bold for institution names */
+            font-family: pixel, sans-serif; /* Ensure pixel is used */
+            color: #FF4500; /* Bright, deep red color */
         }
 
-        /* Responsive Adjustments */
-        @media (min-width: 768px) {
-            h1 {
-                font-size: 2.5vw;
-            }
-            .phd-title, .bio, .section-title, .section-content, ul, a {
-                font-size: 1.2vw;
-            }
+        /* Style for degrees */
+        .degree {
+            font-weight: normal; /* Normal weight for degrees (not bold) */
+            color: #FF4500; /* Keep the same color */
+        }
+
+        /* Style for thesis titles */
+        .thesis {
+            font-style: normal; /* Italicize thesis titles */
+        }
+
+        /* Centered links container */
+        .links {
+            display: flex; /* Use flexbox for layout */
+            justify-content: center; /* Center the links */
+            flex-direction: column; /* Stack links vertically */
+            align-items: center; /* Align items to the center */
+            margin-top: 0px; /* Space above the links */
+        }
+
+        /* Style for individual links */
+        .links p {
+            margin: 0px 0; /* Reduced space between links */
         }
     </style>
 </head>
 <body>
-    <div class="background"></div> <!-- Background GIF -->
+    <div class="background"></div> <!-- Tiled background GIF -->
     <div class="container">
         <h1>Alberto Maria Pepe</h1>
-        <p class="phd-title">PhD, University of Cambridge / Applied Sciences Group, Microsoft</p>
+
+        <p class="phd-title">PhD, University of Cambridge / Applied Sciences Group, Microsoft</p> <!-- Centered title -->
 
         <div class="section-content">
-            <p class="bio">I’m a PhD candidate at the University of Cambridge, supervised by Joan Lasenby. My latest projects focused on Diffusion Models and Hypercomplex Neural Networks for 2 and 3D Computer Vision problems. More broadly, we looked at mathematical frameworks that help build geometrically meaningful learning pipelines. I find incredibly fascinating studying how machines learn, understand and process geometrical quantities and spatial transformations. Previously, I have been a Research Intern at Microsoft ('22, '24, '25) and Huawei ('23).</p>
+            <p class="bio">I’m a PhD candidate at the University of Cambridge, supervised by Joan Lasenby. My latest projects focused on Diffusion Models and Hypercomplex Neural Networks for 2 and 3D Computer Vision problems. More broadly, we looked at mathematical frameworks that help build geometrically meaningful learning pipelines. I find incredibly fascinating studying how machines learn, understand and process geometrical quantities and spatial transformations. Previously, I have been a Research Intern at Microsoft ('22, '24, '25) and Huawei ('23). </p>
         </div>
 
-        <div class="divider"></div>
-
+        <div class="divider"></div> <!-- White line -->
+        
+        
+        <!-- Publications Section -->
         <div class="section-title">Projects</div>
         <div class="section-content">...</div>
-
-        <div class="divider"></div>
-
+        
+        <!-- Experience Section -->
+        <div class="divider"></div> <!-- White line -->
         <div class="section-title">Experience</div>
         <div class="section-content">
             <ul>
-                <li><span class="institution">Microsoft</span> - Remote, May 25 - Jul 25</li>
-                <li><span class="institution">Microsoft</span> - Redmond (WA), Jun 24 - Sep 24</li>
-                <li><span class="institution">Huawei</span> - Munich, Germany, Oct 23 - Mar 24</li>
-                <li><span class="institution">Microsoft Research</span> - Cambridge (UK), Feb 22 - May 22</li>
+                <li>
+                    <span class="institution">Microsoft</span> - 
+                    <span class="degree">Remote - May 25 - Jul 25</span>
+                </li>
+                <li>&nbsp;</li> <!-- Space between institutions -->
+                
+                <li>
+                    <span class="institution">Microsoft</span> - 
+                    <span class="degree">Redmond (WA) - Jun 24 - Sep 24</span>
+                </li>
+                <li>&nbsp;</li> <!-- Space between institutions -->
+                
+                <li>
+                    <span class="institution">Huawei</span> - 
+                    <span class="degree">Munich, Germany - Oct 23 - Mar 24</span>
+                </li>
+                <li>&nbsp;</li> <!-- Space between institutions -->
+                
+                <li>
+                    <span class="institution">Microsoft Research</span> - 
+                    <span class="degree">Cambridge (UK) - Feb 22 - May 22</span>
+                </li>
             </ul>
         </div>
-
-        <div class="divider"></div>
-
+        
+        <div class="divider"></div> <!-- White line -->
+        
+        <!-- Education Section -->
         <div class="section-title">Education</div>
         <div class="section-content">
             <ul>
-                <li><span class="institution">University of Cambridge</span> - PhD, Oct 20 - May 25</li>
+                <li>
+                    <span class="institution">University of Cambridge</span> - 
+                    <span class="degree">PhD, Oct 20 - May 25</span>
+                </li>
                 <li>Signal Processing & Communications Lab</li>
-                <li class="thesis">Thesis: Machine Learning with Geometric Algebra</li>
-
-                <li><span class="institution">Tsinghua - UC Berkeley Shenzhen Institute</span> - M.Sc. 18-20</li>
-                <li>Data Science & IT</li>
-
-                <li><span class="institution">Politecnico di Torino</span> - B.Sc. 15-18</li>
+                <li class="thesis">Thesis: Machine Learning with Geometric Algebra: Multivectors for Modelling, Estimating and Computing</li>
+                <li>&nbsp;</li> <!-- Space between institutions -->
+                
+                <li>
+                    <span class="institution">Tsinghua - UC Berkeley Shenzhen Institute (TBSI), Shenzhen, China</span> - 
+                    <span class="degree">M.Sc. 18-20</span>
+                </li>
+                <li>Data Science & Information Technology</li>
+                <li class="thesis">Thesis: Machine Learning Approaches to Digital Signal Processing in Optical and Wireless Communication</li>
+                <li>&nbsp;</li> <!-- Space between institutions -->
+                
+                <li>
+                    <span class="institution">Politecnico di Torino, Turin, Italy</span> - 
+                    <span class="degree">B.Sc. 15-18</span>
+                </li>
                 <li>Electronic & Communications Engineering</li>
-
-                <li><span class="institution">Tongji University</span> - B.Sc. 16-17</li>
+                <li>&nbsp;</li> <!-- Space between institutions -->
+                
+                <li>
+                    <span class="institution">Tongji University, Shanghai, China</span> - 
+                    <span class="degree">B.Sc. 16-17</span>
+                </li>
                 <li>Information Technology Engineering</li>
             </ul>
         </div>
 
-        <div class="divider"></div>
+
+        
+        <div class="divider"></div> <!-- White line -->
 
         <div class="section-title">Invited Talks</div>
         <div class="section-content">...</div>
 
-        <div class="divider"></div>
-
+        <div class="divider"></div> <!-- White line -->
+        
         <div class="links">
-            <p><a href="https://scholar.google.com/citations?user=iBfuNo8AAAAJ&hl=en" target="_blank">Scholar</a></p>
-            <p><a href="https://www.researchgate.net/profile/Alberto-Pepe-5?ev=hdr_xprf" target="_blank">ResearchGate</a></p>
-            <p><a href="https://www.linkedin.com/in/alberto-maria-pepe-136164124/" target="_blank">LinkedIn</a></p>
-            <p><a href="https://github.com/albertomariapepe" target="_blank">GitHub</a></p>
-            <p><a href="mailto:ap2219@cam.ac.uk">Email</a></p>
+            <p> <a href="https://scholar.google.com/citations?user=iBfuNo8AAAAJ&hl=en" target="_blank">scholar</a></p>
+            <p> <a href="https://www.researchgate.net/profile/Alberto-Pepe-5?ev=hdr_xprf" target="_blank">researchgate</a></p>
+            <p> <a href="https://www.linkedin.com/in/alberto-maria-pepe-136164124/" target="_blank">linkedin</a></p>
+            <p> <a href="https://github.com/albertomariapepe" target="_blank">github</a></p>
+            <p> <a href="mailto:ap2219@cam.ac.uk">mail</a></p>
         </div>
     </div>
 </body>
