@@ -8,7 +8,7 @@
         /* Load the custom font */
         @font-face {
             font-family: 'ArcadeClassic';
-            src: url('ARCADECLASSIC.TTF') format('truetype'); /* Ensure the file exists in the repo */
+            src: url('scream_when_youre_ready_to_die.ttf') format('truetype'); /* Ensure the file exists in the repo */
             font-weight: normal;
             font-style: normal;
         }
@@ -22,9 +22,13 @@
             margin: 40px;
         }
 
-        /* Apply ArcadeClassic font only to the name */
+        /* Apply ArcadeClassic font only to the name and add white border */
         h1 {
             font-family: 'ArcadeClassic', sans-serif;
+            border: 4px solid white; /* White border */
+            display: inline-block; /* Ensures border wraps around text */
+            padding: 10px 20px; /* Adds spacing inside border */
+            border-radius: 15px; /* Rounded edges */
         }
 
         a {
@@ -44,7 +48,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Alberto   Maria   Pepe</h1>
+        <h1>Alberto Maria Pepe</h1>
         <p>University of Cambridge | PhD in Geometric Deep Learning & Computer Vision</p>
         <p>ex Microsoft | ex Microsoft Research | ex Huawei</p>
         <p>I'm ...</p>
