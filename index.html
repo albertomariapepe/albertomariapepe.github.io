@@ -22,12 +22,12 @@
             font-family: Helvetica, sans-serif; /* Ensure Helvetica is used for the body */
         }
 
-        /* Style for the GIF background */
+        /* Style for the tiled background */
         .background {
             background-image: url('galo.gif'); /* Use the GIF as a background image */
             background-repeat: repeat; /* Tile the background */
             background-size: auto; /* Maintain the original size of the image */
-            position: absolute; /* Position the background absolutely */
+            position: fixed; /* Position the background fixed to the viewport */
             top: 0; /* Align to the top */
             left: 0; /* Align to the left */
             width: 100%; /* Full width */
@@ -96,7 +96,7 @@
 
         /* Style for section content */
         .section-content {
-            font-size: 0.5vw; /* Adjusted size for section content */
+            font-size: 0.5vw; /* Much smaller font size for section content */
             text-align: left; /* Left align the section content */
             margin: 10px 0; /* Add margin for spacing */
         }
@@ -104,7 +104,7 @@
         /* Style for lists */
         ul {
             margin-left: 20px; /* Indent the list */
-            font-size: 1.5vw; /* Adjusted size for list items */
+            font-size: 0.5vw; /* Smaller font size for list items */
             list-style-type: none; /* Remove default list style */
             padding: 0; /* Remove default padding */
         }
@@ -127,7 +127,7 @@
     </style>
 </head>
 <body>
-    <img src="galo.gif" alt="Background GIF" class="background"> <!-- Fullscreen background GIF -->
+    <div class="background"></div> <!-- Tiled background GIF -->
     <div class="container">
         <h1>Alberto Maria Pepe</h1>
 
