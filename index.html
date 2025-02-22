@@ -143,6 +143,23 @@ add these methods to this:
             font-style: normal; /* Italicize thesis titles */
         }
 
+        .projects-container {
+            display: flex;
+            align-items: center; /* Align image and text */
+        }
+        
+        .project-image {
+            width: 150px; /* Adjust size as needed */
+            height: auto;
+            margin-right: 15px; /* Space between image and text */
+        }
+        
+        .project-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
         /* Centered links container */
         .links {
             display: flex; /* Use flexbox for layout */
@@ -174,14 +191,14 @@ add these methods to this:
         
         <!-- Publications Section -->
         <div class="section-title">Projects</div>
-        <div class="section-content">
-             <ul>
-                <li>
-                    <span class="institution"> Fengbo (风伯): a Clifford Neural Operator pipeline for 3D PDEs in Computational Fluid Dynamics </span> 
-                </li>
-                <li>ICLR 2025, Singapore </li>
-                <li class="thesis">paper / code </li>
-                <li>&nbsp;</li> <!-- Space between institutions -->
+        <div class="projects-container">
+            <img src="fengbo.png" alt="Project Figure" class="project-image">
+            <div class="project-details">
+                <div class="institution">Fengbo: a Clifford Neural Operator pipeline for 3D PDEs in Computational Fluid Dynamics</div>
+                <div>ICLR 2025, Singapore</div>
+                <div class="thesis">paper / code</div>
+            </div>
+        </div>
         
         <!-- Experience Section -->
         <div class="divider"></div> <!-- White line -->
