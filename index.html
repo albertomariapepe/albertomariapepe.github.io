@@ -38,7 +38,7 @@
         /* Style for the central text container */
         .container {
             max-width: 800px; /* Set a max width for the text container */
-            height: 100%; /* Full height to match the viewport */
+            height: auto; /* Adjust height to fit content */
             margin: auto; /* Center the container horizontally */
             background-color: rgba(0, 0, 0, 1); /* Semi-transparent black background */
             padding: 20px; /* Add padding around text */
@@ -59,7 +59,7 @@
             display: inline-block; /* Border wraps around text */
             padding: 15px; /* Equal padding on all sides */
             border-radius: 0; /* No rounded edges */
-            font-size: 4.5vw; /* Adjusted size for responsiveness */
+            font-size: 3.5vw; /* Adjusted size for responsiveness */
         }
 
         /* Paragraphs styling */
@@ -77,6 +77,29 @@
         a:hover {
             text-decoration: underline;
         }
+
+        /* Style for the white line */
+        .divider {
+            width: 100%; /* Full width */
+            height: 2px; /* Height of the line */
+            background-color: white; /* Color of the line */
+            margin: 20px 0; /* Space around the line */
+        }
+
+        /* Style for section titles */
+        .section-title {
+            font-family: 'ArcadeClassic', sans-serif; /* Use custom font for the titles */
+            font-size: 2vw; /* Size for section titles */
+            text-align: left; /* Left align the section titles */
+            margin: 20px 0; /* Space around section titles */
+        }
+
+        /* Style for section content */
+        .section-content {
+            font-size: 1.5vw; /* Adjusted size for section content */
+            text-align: left; /* Left align the section content */
+            margin: 10px 0; /* Add margin for spacing */
+        }
     </style>
 </head>
 <body>
@@ -91,6 +114,20 @@
         <p>🔗 <a href="https://github.com/albertomariapepe" target="_blank">github</a></p>
         <p>💼 <a href="https://www.linkedin.com/in/alberto-maria-pepe-136164124/" target="_blank">linkedin</a></p>
         <p>📧 <a href="mailto:ap2219@cam.ac.uk">mail</a></p>
+        
+        <div class="divider"></div> <!-- White line -->
+
+        <!-- Experience Section -->
+        <div class="section-title">Experience</div>
+        <div class="section-content">Details about your experience...</div>
+
+        <!-- Education Section -->
+        <div class="section-title">Education</div>
+        <div class="section-content">Details about your education...</div>
+
+        <!-- Publications Section -->
+        <div class="section-title">Publications</div>
+        <div class="section-content">Details about your publications...</div>
     </div>
 </body>
 </html>
