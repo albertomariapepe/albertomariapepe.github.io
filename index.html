@@ -133,6 +133,20 @@
         .thesis {
             font-style: normal; /* Italicize thesis titles */
         }
+
+        /* Centered links container */
+        .links {
+            display: flex; /* Use flexbox for layout */
+            justify-content: center; /* Center the links */
+            flex-direction: column; /* Stack links vertically */
+            align-items: center; /* Align items to the center */
+            margin-top: 10px; /* Space above the links */
+        }
+
+        /* Style for individual links */
+        .links p {
+            margin: 5px 0; /* Reduced space between links */
+        }
     </style>
 </head>
 <body>
@@ -196,11 +210,18 @@
         <div class="section-title">Publications</div>
         <div class="section-content">Details about your publications...</div>
 
+        <div class="section-title">Invited Talks</div>
+        <div class="section-content">...</div>
+
         <div class="divider"></div> <!-- White line -->
         
-        <p>🔗 <a href="https://github.com/albertomariapepe" target="_blank">github</a></p>
-        <p>💼 <a href="https://www.linkedin.com/in/alberto-maria-pepe-136164124/" target="_blank">linkedin</a></p>
-        <p>📧 <a href="mailto:ap2219@cam.ac.uk">mail</a></p>
+        <div class="links">
+            <p>🔗 <a href="https://scholar.google.com/citations?user=iBfuNo8AAAAJ&hl=en" target="_blank">scholar</a></p>
+            <p>🔗 <a href="https://www.researchgate.net/profile/Alberto-Pepe-5?ev=hdr_xprf" target="_blank">researchgate</a></p>
+            <p>💼 <a href="https://www.linkedin.com/in/alberto-maria-pepe-136164124/" target="_blank">linkedin</a></p>
+            <p>🔗 <a href="https://github.com/albertomariapepe" target="_blank">github</a></p>
+            <p>📧 <a href="mailto:ap2219@cam.ac.uk">mail</a></p>
+        </div>
     </div>
 </body>
 </html>
