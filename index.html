@@ -38,15 +38,18 @@
         /* Style for the central text container */
         .container {
             max-width: 900px; /* Set a max width for the text container */
-            margin: auto; /* Center the container */
+            height: 100%; /* Full height to match the viewport */
+            margin: auto; /* Center the container horizontally */
             background-color: rgba(0, 0, 0, 1); /* Semi-transparent black background */
             padding: 20px; /* Add padding around text */
-            border-radius: 25px; /* Rounded corners */
+            border-radius: 0; /* No rounded corners */
             position: relative; /* Position relative for inner content */
             z-index: 1; /* Bring to front */
             text-align: center; /* Center the text */
             color: white; /* Text color */
-            font-family: Helvetica, sans-serif; /* Ensure Helvetica is used in the container */
+            display: flex; /* Use flexbox for centering content */
+            flex-direction: column; /* Stack children vertically */
+            justify-content: center; /* Center content vertically */
         }
 
         /* Style for name with equal padding */
@@ -55,7 +58,7 @@
             border: 2px solid white; /* Thinner border */
             display: inline-block; /* Border wraps around text */
             padding: 15px; /* Equal padding on all sides */
-            border-radius: 25px; /* Softer rounded edges */
+            border-radius: 0; /* No rounded edges */
         }
 
         a {
