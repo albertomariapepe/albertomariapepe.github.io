@@ -28,7 +28,7 @@
             border: 2px solid white; /* Thinner border */
             display: inline-block; /* Border wraps around text */
             padding: 15px; /* Equal padding on all sides */
-            border-radius: 25px; /* Softer rounded edges */
+            border-radius: 25px; /* Rounded edges for the name */
         }
 
         a {
@@ -47,18 +47,18 @@
 
         /* Style for the GIF */
         .gif {
-            width: calc(100% - 40px); /* Match the width of the name box */
-            height: 55px; /* Set height to match the height of the name box */
+            width: 100%; /* Full width */
+            height: 150px; /* Increased height */
             margin: 20px 0; /* Add space above and below the GIF */
-            border-radius: 0 0 25px 25px; /* Softer bottom edges to match the name box */
+            border-radius: 0; /* No rounded corners for the GIF */
             object-fit: cover; /* Ensure the GIF covers the area without distortion */
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <h1>Alberto Maria Pepe</h1> <!-- Name with rounded border -->
         <img src="galo.gif" alt="Background GIF" class="gif"> <!-- Add your GIF here -->
-        <h1>Alberto Maria Pepe</h1>
 
         <p>PhD, University of Cambridge</p>
         <p>PhD in Geometric Deep Learning & Computer Vision</p>
@@ -68,7 +68,6 @@
         <p>💼 Connect with me on <a href="https://www.linkedin.com/in/alberto-maria-pepe-136164124/" target="_blank">LinkedIn</a></p>
         <p>📧 Email me at <a href="mailto:ap2219@cam.ac.uk">ap2219@cam.ac.uk</a></p>
         <img src="galo.gif" alt="Background GIF" class="gif"> <!-- Add your GIF here -->
-
     </div>
 </body>
 </html>
