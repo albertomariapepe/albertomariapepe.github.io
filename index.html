@@ -61,9 +61,16 @@
             text-align: center; /* Center align the name */
         }
 
-        /* Paragraphs styling */
-        p {
+        /* Center the PhD text */
+        .phd-title {
+            text-align: center; /* Center align */
             font-size: 1.5vw; /* Adjusted size for responsiveness */
+            margin: 10px 0; /* Space around the title */
+        }
+
+        /* Bio styling */
+        .bio {
+            font-size: 1.2vw; /* Smaller font size for the bio */
             margin: 1px 0; /* Add margin for spacing */
             text-align: justify; /* Justify align the paragraphs */
         }
@@ -133,10 +140,10 @@
     <div class="container">
         <h1>Alberto Maria Pepe</h1>
 
-        <p>PhD, University of Cambridge</p>
+        <p class="phd-title">PhD, University of Cambridge</p> <!-- Centered title -->
 
         <div class="section-content">
-            <p>Ciao - I’m Alberto, a PhD candidate at the University of Cambridge supervised by Joan Lasenby. My latest projects focused on Diffusion Models and Hypercomplex Neural Networks for 2 and 3D Computer Vision tasks. More broadly, we looked at mathematical frameworks that help build geometrically meaningful learning pipelines. I find incredibly fascinating studying how machines learn, understand and process geometrical quantities and spatial transformations. Previously, I have been a Research Intern at Microsoft ('22, '24, '25) and Huawei ('23). </p>
+            <p class="bio">Ciao - I’m Alberto, a PhD candidate at the University of Cambridge supervised by Joan Lasenby. My latest projects focused on Diffusion Models and Hypercomplex Neural Networks for 2 and 3D Computer Vision tasks. More broadly, we looked at mathematical frameworks that help build geometrically meaningful learning pipelines. I find incredibly fascinating studying how machines learn, understand and process geometrical quantities and spatial transformations. Previously, I have been a Research Intern at Microsoft ('22, '24, '25) and Huawei ('23). </p>
         </div>
 
         <div class="divider"></div> <!-- White line -->
