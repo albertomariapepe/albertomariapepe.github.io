@@ -15,11 +15,37 @@
 
         /* Default styles */
         body {
-            background-color: black;
+            background-color: black; /* Fallback color */
             color: white;
             font-family: Helvetica, sans-serif; /* Use Helvetica as the default font */
             text-align: center;
-            margin: 40px;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            position: relative; /* Positioning context for the background GIF */
+            overflow: hidden; /* Hide overflow */
+        }
+
+        /* Background GIF */
+        .background {
+            position: absolute; /* Position absolutely */
+            top: 0;
+            left: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            z-index: -1; /* Behind the content */
+            background-image: url('galo.gif'); /* Set GIF as background */
+            background-size: cover; /* Cover the entire area */
+            background-position: center; /* Center the background */
+            animation: slow-motion 10s infinite; /* Slow down GIF animation */
+        }
+
+        /* Style for the central container */
+        .container {
+            max-width: 800px; /* Limit width of the text container */
+            margin: auto; /* Center the container */
+            padding: 20px; /* Padding around the text */
+            background: rgba(0, 0, 0, 0.9); /* Semi-transparent background for contrast */
+            border-radius: 15px; /* Rounded corners for the container */
         }
 
         /* Style for name with equal padding */
@@ -40,26 +66,27 @@
             text-decoration: underline;
         }
 
-        .container {
-            max-width: 800px;
-            margin: auto;
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px; /* Reduce padding on mobile */
+            }
+            h1 {
+                padding: 10px; /* Reduce padding for name on mobile */
+            }
         }
 
-        /* Style for the GIF */
-        .gif {
-            width: 80%; /* Full width */
-            height: 100px; /* Increased height */
-            margin: 10px 0; /* Add space above and below the GIF */
-            border-radius: 0; /* No rounded corners for the GIF */
-            object-fit: cover; /* Ensure the GIF covers the area without distortion */
+        /* Slow down GIF animation */
+        @keyframes slow-motion {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
         }
     </style>
 </head>
 <body>
+    <div class="background"></div> <!-- Background GIF -->
     <div class="container">
-        <img src="galo.gif" alt="Background GIF" class="gif"> <!-- Add your GIF here -->
-
-        <h1>Alberto Maria Pepe</h1> <!-- Name with rounded border -->
+        <h1>Alberto Maria Pepe</h1>
 
         <p>PhD, University of Cambridge</p>
         <p>PhD in Geometric Deep Learning & Computer Vision</p>
@@ -68,7 +95,6 @@
         <p>🔗 Check out my projects on <a href="https://github.com/albertomariapepe" target="_blank">GitHub</a></p>
         <p>💼 Connect with me on <a href="https://www.linkedin.com/in/alberto-maria-pepe-136164124/" target="_blank">LinkedIn</a></p>
         <p>📧 Email me at <a href="mailto:ap2219@cam.ac.uk">ap2219@cam.ac.uk</a></p>
-        <img src="galo.gif" alt="Background GIF" class="gif"> <!-- Add your GIF here -->
     </div>
 </body>
 </html>
