@@ -21,6 +21,7 @@
             height: 100vh; /* Full viewport height */
             overflow: hidden; /* Hide overflow to prevent scrollbars */
             position: relative; /* Set position for absolute positioning of the GIF */
+            font-family: Helvetica, sans-serif; /* Ensure Helvetica is used for the body */
         }
 
         /* Style for the GIF background */
@@ -36,20 +37,21 @@
 
         /* Style for the central text container */
         .container {
-            max-width: 600px; /* Set a max width for the text container */
+            max-width: 700px; /* Set a max width for the text container */
             margin: auto; /* Center the container */
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            background-color: rgba(0, 0, 0, 1); /* Semi-transparent black background */
             padding: 20px; /* Add padding around text */
             border-radius: 25px; /* Rounded corners */
             position: relative; /* Position relative for inner content */
             z-index: 1; /* Bring to front */
             text-align: center; /* Center the text */
             color: white; /* Text color */
+            font-family: Helvetica, sans-serif; /* Ensure Helvetica is used in the container */
         }
 
         /* Style for name with equal padding */
         h1 {
-            font-family: 'ArcadeClassic', sans-serif;
+            font-family: 'ArcadeClassic', sans-serif; /* Use custom font for the name */
             border: 2px solid white; /* Thinner border */
             display: inline-block; /* Border wraps around text */
             padding: 15px; /* Equal padding on all sides */
