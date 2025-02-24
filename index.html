@@ -366,74 +366,74 @@
     position: fixed; 
     top: 10px; 
     right: 10px; 
-    padding: 10px 20px; 
+    padding: 5px 5px; 
     background: white; 
     color: black; 
-    border: 3px solid black; 
+    border: 2.5px solid black; 
     cursor: pointer; 
     font-weight: bold; 
-    font-size: 16px; 
-    border-radius: 5px; 
-    font-family: 'Minecraftia', sans-serif; 
+    font-size: 10px; 
+    border-radius: 0px; 
+    font-family: 'pixel', sans-serif; 
     transition: all 0.3s ease;
 ">
-    Light Mode
+    light mode
 </button>
 
 <script>
-    let isDarkTheme = true; // Track theme state
+        let isDarkTheme = true; // Track theme state
 
-    function toggleTheme() {
-        document.body.style.transition = "all 0.5s ease"; // Smooth transition
+        function toggleTheme() {
+            document.body.style.transition = "all 0.5s ease"; // Smooth transition
 
-        document.querySelectorAll("*").forEach(el => {
-            let style = window.getComputedStyle(el);
-            let color = style.color;
-            let bgColor = style.backgroundColor;
-            let borderColor = style.borderColor;
+            document.querySelectorAll("*").forEach(el => {
+                let style = window.getComputedStyle(el);
+                let color = style.color;
+                let bgColor = style.backgroundColor;
+                let borderColor = style.borderColor;
 
-            function rgbToHex(rgb) {
-                let match = rgb.match(/\d+/g);
-                return match ? "#" + match.map(x => ("0" + parseInt(x).toString(16)).slice(-2)).join("") : rgb;
-            }
+                function rgbToHex(rgb) {
+                    let match = rgb.match(/\d+/g);
+                    return match ? "#" + match.map(x => ("0" + parseInt(x).toString(16)).slice(-2)).join("") : rgb;
+                }
 
-            let hexColor = rgbToHex(color);
-            let hexBgColor = rgbToHex(bgColor);
-            let hexBorderColor = rgbToHex(borderColor);
+                let hexColor = rgbToHex(color);
+                let hexBgColor = rgbToHex(bgColor);
+                let hexBorderColor = rgbToHex(borderColor);
 
-            if (isDarkTheme) {
-                // Dark → Light Mode
-                if (hexColor === "#000000") el.style.color = "#FFFFFF"; // Black → White
-                else if (hexColor === "#FFFFFF") el.style.color = "#000000"; // White → Black
-                else el.style.color = "#4DC3E2"; // Other colors → Aqua Blue
+                if (isDarkTheme) {
+                    // Dark → Light Mode
+                    if (hexColor === "#000000") el.style.color = "#FFFFFF"; // Black → White
+                    else if (hexColor === "#FFFFFF") el.style.color = "#000000"; // White → Black
+                    else el.style.color = "#A0D8E6"; // Other colors → Lighter Aqua Blue
 
-                if (hexBgColor === "#000000") el.style.backgroundColor = "#FFFFFF"; // Black → White
-                else if (hexBgColor === "#FFFFFF") el.style.backgroundColor = "#000000"; // White → Black
-                else el.style.backgroundColor = "#4DC3E2"; // Other colors → Aqua Blue
+                    if (hexBgColor === "#000000") el.style.backgroundColor = "#FFFFFF"; // Black → White
+                    else if (hexBgColor === "#FFFFFF") el.style.backgroundColor = "#000000"; // White → Black
+                    else el.style.backgroundColor = "#A0D8E6"; // Other colors → Lighter Aqua Blue
 
-                if (hexBorderColor !== "#000000" && hexBorderColor !== "#FFFFFF") el.style.borderColor = "#4DC3E2"; // Borders → Aqua Blue
-            } else {
-                // Light → Dark Mode (Revert)
-                if (hexColor === "#FFFFFF") el.style.color = "#000000"; // White → Black
-                else if (hexColor === "#000000") el.style.color = "#FFFFFF"; // Black → White
-                else el.style.color = "#FF4500"; // Colored elements → Back to original color
+                    if (hexBorderColor !== "#000000" && hexBorderColor !== "#FFFFFF") el.style.borderColor = "#A0D8E6"; // Borders → Lighter Aqua Blue
+                } else {
+                    // Light → Dark Mode (Revert)
+                    if (hexColor === "#FFFFFF") el.style.color = "#000000"; // White → Black
+                    else if (hexColor === "#000000") el.style.color = "#FFFFFF"; // Black → White
+                    else el.style.color = "#FF4500"; // Colored elements → Back to original color
 
-                if (hexBgColor === "#FFFFFF") el.style.backgroundColor = "#000000"; // White → Black
-                else if (hexBgColor === "#000000") el.style.backgroundColor = "#FFFFFF"; // Black → White
-                else el.style.backgroundColor = "#FF4500"; // Colored elements → Back to original color
+                    if (hexBgColor === "#FFFFFF") el.style.backgroundColor = "#000000"; // White → Black
+                    else if (hexBgColor === "#000000") el.style.backgroundColor = "#FFFFFF"; // Black → White
+                    else el.style.backgroundColor = "#FF4500"; // Colored elements → Back to original color
 
-                if (hexBorderColor === "#4DC3E2") el.style.borderColor = "#FF4500"; // Aqua → Original border color
-            }
-        });
+                    if (hexBorderColor === "#A0D8E6") el.style.borderColor = "#FF4500"; // Aqua → Original border color
+                }
+            });
 
-        isDarkTheme = !isDarkTheme; // Toggle state
+            isDarkTheme = !isDarkTheme; // Toggle state
 
-        // Update button text
-        document.getElementById("theme-toggle").innerText = isDarkTheme ? "Light Mode" : "Dark Mode";
-    }
+            // Update button text
+            document.getElementById("theme-toggle").innerText = isDarkTheme ? "Light Mode" : "Dark Mode";
+        }
 
-    document.getElementById("theme-toggle").addEventListener("click", toggleTheme);
-</script>
+        document.getElementById("theme-toggle").addEventListener("click", toggleTheme);
+    </script>
 
 
 
