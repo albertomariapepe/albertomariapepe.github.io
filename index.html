@@ -336,27 +336,36 @@
     </div>
 
 <script>
-    // Define the colors to cycle through
-    const colors = ["#FF0000", "#00FF00", "#008E97", "#136FFF", #C0C0C0]; // blood red, brat green, tarantino yellow, napoli blue, silver
+    window.onload = function () {
+        // Define the colors to cycle through
+        const colors = ["#FF0000", "#00FF00", "#008E97", "#136FFF", "#C0C0C0"]; // blood red, brat green, napoli blue, tarantino yellow, silver
 
-    // Pick a random color
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        // Pick a random color
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
-    // Change the text and border color for elements with #FF4500
-    document.querySelectorAll(".institution, .degree, a").forEach(el => {
-        if (window.getComputedStyle(el).color === "rgb(255, 69, 0)") { 
-            el.style.color = randomColor; // Change text color
+        // Function to convert RGB to HEX
+        function rgbToHex(rgb) {
+            let match = rgb.match(/\d+/g);
+            return match ? "#" + match.map(x => ("0" + parseInt(x).toString(16)).padStart(2, "0")).join("") : rgb;
         }
-    });
 
-    // Change the border color for project images
-    document.querySelectorAll(".project-image").forEach(el => {
-        if (window.getComputedStyle(el).borderColor === "rgb(255, 69, 0)") { 
-            el.style.borderColor = randomColor; // Change border color
-        }
-    });
+        // Change the text and border color for elements with #FF4500
+        document.querySelectorAll(".institution, .degree, a").forEach(el => {
+            let computedColor = rgbToHex(window.getComputedStyle(el).color);
+            if (computedColor.toUpperCase() === "#FF4500") { 
+                el.style.color = randomColor; // Change text color
+            }
+        });
+
+        // Change the border color for project images
+        document.querySelectorAll(".project-image").forEach(el => {
+            let computedBorderColor = rgbToHex(window.getComputedStyle(el).borderColor);
+            if (computedBorderColor.toUpperCase() === "#FF4500") { 
+                el.style.borderColor = randomColor; // Change border color
+            }
+        });
+    };
 </script>
-
 
 
 
