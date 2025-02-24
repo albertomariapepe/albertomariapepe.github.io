@@ -336,17 +336,21 @@
     </div>
 
 <script>
-    // Define color options, including the original orange
-    const colors = ["#FF4500", "#FF0000", "#FF00FF", "#00FF00", "#FFFF00", "#136FFF"];
-    
+    // Define new colors to swap with the existing orange
+    const colors = ["#FF0000", "#FF00FF", "#00FF00", "#FFFF00", "#136FFF"]; // Red, Magenta, Green, Yellow, Blue Napoli
+
     // Pick a random color from the array
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
-    // Apply color changes to elements that should change color
-    document.querySelectorAll("h1, .section-title, .bio, .phd-title, .degree, .thesis, .section-content, ul li, .divider").forEach(el => {
-        el.style.color = randomColor;
+    // Select all elements that use the current orange color
+    document.querySelectorAll(".institution, .degree, .project-image, a").forEach(el => {
+        if (window.getComputedStyle(el).color === "rgb(255, 69, 0)" || el.style.borderColor === "#FF4500") { 
+            el.style.color = randomColor; // Change text color
+            el.style.borderColor = randomColor; // Change border color if applicable
+        }
     });
 </script>
+
     
 </body>
 </html>
