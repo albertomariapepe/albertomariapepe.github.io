@@ -347,17 +347,23 @@
             <p> <a href="mailto:ap2219@cam.ac.uk">mail</a></p>
 
 
-            <p>Total visits: <span id="visits">0</span></p>
-
-    <script>
-function cb(response) {
-    document.getElementById('visits').innerText = response.value;
-}
-</script>
-<script async src="https://api.countapi.xyz/hit/albertomariapepe.github.io/visits?callback=cb"></script>
-
+            <p>visits: <span id="visits">0</span></p>
     </div>
 
+
+<script>
+        // Callback function to handle the response from CountAPI
+        function cb(response) {
+            if (response && response.value !== undefined) {
+                document.getElementById('visits').innerText = response.value;
+            } else {
+                console.error("Error: No 'value' field in the response.");
+            }
+        }
+    </script>
+
+    <!-- CountAPI URL to update and fetch the visit count -->
+    <script async src="https://api.countapi.xyz/hit/albertomariapepe.github.io/visits?callback=cb"></script>        
  
 
     
