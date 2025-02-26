@@ -348,38 +348,22 @@
         </div>
     </div>
 
+    <div class="divider"></div>
+<div class="section-title">Page Views</div>
+<div class="section-content">
+    <p>Total Visits: <span id="viewCount">Loading...</span></p>
+</div>
+
 <script>
-    window.onload = function () {
-        // Define the colors to cycle through
-        const colors = ["#FF0000", "#00FF00", "#008E97", "#136FFF", "#C0C0C0"]; // blood red, brat green, napoli blue, tarantino yellow, silver
+    const counterUrl = "https://api.countapi.xyz/update/albertomariapepe/views/?amount=1";
 
-        // Pick a random color
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-
-        // Function to convert RGB to HEX
-        function rgbToHex(rgb) {
-            let match = rgb.match(/\d+/g);
-            return match ? "#" + match.map(x => ("0" + parseInt(x).toString(16)).padStart(2, "0")).join("") : rgb;
-        }
-
-        // Change the text and border color for elements with #FF4500
-        document.querySelectorAll(".institution, .degree, a").forEach(el => {
-            let computedColor = rgbToHex(window.getComputedStyle(el).color);
-            if (computedColor.toUpperCase() === "#FF4500") { 
-                el.style.color = randomColor; // Change text color
-            }
-        });
-
-        // Change the border color for project images
-        document.querySelectorAll(".project-image").forEach(el => {
-            let computedBorderColor = rgbToHex(window.getComputedStyle(el).borderColor);
-            if (computedBorderColor.toUpperCase() === "#FF4500") { 
-                el.style.borderColor = randomColor; // Change border color
-            }
-        });
-    };
+    fetch(counterUrl)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("viewCount").innerText = data.value;
+        })
+        .catch(error => console.error("Error fetching view count:", error));
 </script>
-
 
     
 </body>
