@@ -347,26 +347,15 @@
             <p> <a href="mailto:ap2219@cam.ac.uk">mail</a></p>
 
 
-    <p>page views: <span id="viewCount">loading...</span></p>
+    <p> <a page views: <span id="viewCount">loading...</a></p>
 
     <script>
-        const namespace = "albertomariapepe-github-io"; // Your unique namespace
-        const updateUrl = `https://api.countapi.xyz/update/${namespace}/views/?amount=1`;
-        const getUrl = `https://api.countapi.xyz/get/${namespace}/views/`;
+function cb(response) {
+    document.getElementById('visits').innerText = response.value;
+}
+</script>
+<script async src="https://api.countapi.xyz/hit/albertomariapepe.github.io/visits?callback=cb"></script>
 
-        // Function to update and display view count
-        function updateViewCount() {
-            fetch(updateUrl)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById("viewCount").innerText = data.value;
-                })
-                .catch(error => console.error("Error updating view count:", error));
-        }
-
-        // Call function on page load
-        updateViewCount();
-    </script>
     </div>
 
  
