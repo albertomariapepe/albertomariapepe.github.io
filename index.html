@@ -2,449 +2,267 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1024">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="amp.png">
     <title>albertomariapepe</title>
     <style>
         /* Load the custom font */
         @font-face {
             font-family: 'ArcadeClassic';
-            src: url('m42.TTF') format('truetype'); /* Ensure the file exists in the repo */
+            src: url('m42.TTF') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
         @font-face {
             font-family: 'pixel';
-            src: url('MinecraftStandard.otf') format('truetype'); /* Ensure the file exists in the repo */
+            src: url('MinecraftStandard.otf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
         /* Default styles */
         body {
-            background-color: black; /* Set background color for fallback */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
-            overflow: auto; /* Allow scrolling */
-            font-family: pixel, sans-serif; /* Ensure pixel is used for the body */
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+            font-family: pixel, sans-serif;
         }
 
-        /* Style for the tiled background */
+        /* Tiled background */
         .background {
-            background-image: url('galo3.gif'); /* Use the GIF as a background image */
-            background-repeat: repeat; /* Tile the background */
-            background-size: contain; /* Ensure the GIF is sized to fit within the div */
-            position: fixed; /* Position the background fixed to the viewport */
-            top: 0; /* Align to the top */
-            left: 0; /* Align to the left */
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            z-index: -1; /* Place behind other elements */
+            background-image: url('galo3.gif');
+            background-repeat: repeat;
+            background-size: contain;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
 
-        /* Style for the central text container */
+        /* Main container */
         .container {
-            max-width: 800px; /* Set a max width for the text container */
-            margin: auto; /* Center the container horizontally */
-            background-color: rgba(0, 0, 0, 1); /* Semi-transparent black background */
-            padding: 20px; /* Add padding around text */
-            border-radius: 0; /* No rounded corners */
-            position: relative; /* Position relative for inner content */
-            z-index: 1; /* Bring to front */
-            color: white; /* Text color */
-            display: flex; /* Use flexbox for centering content */
-            flex-direction: column; /* Stack children vertically */
-            justify-content: flex-start; /* Align content to the top */
+            max-width: 90%; /* Adjust width for smaller screens */
+            margin: auto;
+            background-color: rgba(0, 0, 0, 1);
+            padding: 4vw; /* Make padding responsive */
+            border-radius: 0;
+            position: relative;
+            z-index: 1;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
-        /* Style for name with equal padding */
+        /* Title styles */
         h1 {
-            font-family: 'ArcadeClassic', sans-serif; /* Use custom font for the name */
-            border: 0px solid white; /* Thinner border */
-            display: inline-block; /* Border wraps around text */
-            padding: 15px; /* Equal padding on all sides */
-            border-radius: 0; /* No rounded edges */
-            font-size: 2vw; /* Adjusted size for responsiveness */
-            text-align: center; /* Center align the name */
+            font-family: 'ArcadeClassic', sans-serif;
+            padding: 1.5vw;
+            font-size: 5vw; /* Responsive font size */
+            text-align: center;
         }
 
-        /* Center the PhD text */
+        /* PhD title */
         .phd-title {
-            text-align: center; /* Center align */
-            font-size: 1vw; /* Adjusted size for responsiveness */
-            margin: 10px 0; /* Space around the title */
+            text-align: center;
+            font-size: 3vw; /* Adjusted for readability */
+            margin: 2vw 0;
         }
 
         /* Bio styling */
         .bio {
-            font-size: 0.7vw; /* Smaller font size for the bio */
-            margin: 1px 0; /* Add margin for spacing */
-            text-align: justify; /* Justify align the paragraphs */
+            font-size: 2.5vw;
+            margin: 1vw 0;
+            text-align: justify;
         }
 
         a {
-            color: #FF4500; /* Reddish-orange color */
+            color: #FF4500;
             text-decoration: none;
-            font-size: 0.8vw; /* Adjusted size for responsiveness */
+            font-size: 3vw;
         }
 
         a:hover {
             text-decoration: underline;
         }
 
-        /* Style for the white line */
+        /* Divider */
         .divider {
-            width: 100%; /* Full width */
-            height: 2px; /* Height of the line */
-            background-color: white; /* Color of the line */
-            margin: 5px 0; /* Space around the line */
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            margin: 3vw 0;
         }
 
-        /* Style for section titles */
+        /* Section titles */
         .section-title {
-            font-family: 'ArcadeClassic', sans-serif; /* Use custom font for the titles */
-            font-size: 1.2vw; /* Size for section titles */
-            text-align: left; /* Left align the section titles */
-            margin: 5px 0; /* Space around section titles */
+            font-family: 'ArcadeClassic', sans-serif;
+            font-size: 3.5vw;
+            text-align: left;
+            margin: 3vw 0;
         }
 
-        /* Style for section content */
+        /* Section content */
         .section-content {
-            font-size: 0.7vw; /* Increased font size for better readability */
-            text-align: left; /* Left align the section content */
-            margin: 10px 0; /* Add margin for spacing */
+            font-size: 2.5vw;
+            text-align: left;
+            margin: 4vw 0;
         }
 
-        /* Style for lists */
+        /* Lists */
         ul {
-            margin-left: 20px; /* Indent the list */
-            font-size: 0.7vw; /* Adjusted size for list items */
-            list-style-type: none; /* Remove default list style */
-            padding: 0; /* Remove default padding */
+            margin-left: 5vw;
+            font-size: 2.5vw;
+            list-style-type: none;
+            padding: 0;
         }
 
-        /* Style for institution names */
+        /* Institution names */
         .institution {
-            font-weight: bold; /* Bold for institution names */
-            font-family: pixel, sans-serif; /* Ensure pixel is used */
-            color: #FF4500; /* Bright, deep red color */
+            font-weight: bold;
+            font-family: pixel, sans-serif;
+            color: #FF4500;
         }
 
-        /* Style for degrees */
+        /* Degree */
         .degree {
-            font-weight: normal; /* Normal weight for degrees (not bold) */
-            color: #FF4500; /* Keep the same color */
+            font-weight: normal;
+            color: #FF4500;
         }
 
-        /* Style for thesis titles */
-        .thesis {
-            font-style: normal; /* Italicize thesis titles */
-        }
-
+        /* Project images & text */
         .projects-container {
             display: flex;
-            align-items: center; /* Align image and text */
-            margin-bottom: 8px
+            flex-direction: column; /* Stack on smaller screens */
+            align-items: center;
+            margin-bottom: 5vw;
         }
-        
+
         .project-image {
-            width: 100px; /* Adjust size as needed */
-            height: 100px;
-            margin-right: 15px; /* Space between image and text */
-            border: 2px solid #FF4500; /* Thin border with reddish-orange color */
-            padding: 0px; /* Optional: Adds slight spacing inside the border */
+            width: 60%; /* Make images scale */
+            max-width: 200px; /* Set a max limit */
+            height: auto;
+            margin-bottom: 2vw;
+            border: 2px solid #FF4500;
         }
-                
+
         .project-details {
-            display: flex;
-            font-size: 0.8vw; /* Adjusted size for list items */
-            flex-direction: column;
-            justify-content: center;
-            
+            text-align: center;
+            font-size: 2.5vw;
         }
 
         /* Centered links container */
         .links {
-            display: flex; /* Use flexbox for layout */
-            justify-content: center; /* Center the links */
-            flex-direction: column; /* Stack links vertically */
-            align-items: center; /* Align items to the center */
-            margin-top: 0px; /* Space above the links */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2vw;
         }
 
-        /* Style for individual links */
         .links p {
-            margin: 0px 0; /* Reduced space between links */
+            margin: 1vw 0;
+        }
+
+        /* Responsive design */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 800px; /* Restore desktop width */
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2vw;
+            }
+
+            .phd-title {
+                font-size: 1.5vw;
+            }
+
+            .bio {
+                font-size: 1.2vw;
+            }
+
+            a {
+                font-size: 1vw;
+            }
+
+            .section-title {
+                font-size: 1.5vw;
+            }
+
+            .section-content {
+                font-size: 1.2vw;
+            }
+
+            ul {
+                font-size: 1.2vw;
+                margin-left: 20px;
+            }
+
+            .projects-container {
+                flex-direction: row; /* Side-by-side on desktop */
+                align-items: center;
+                justify-content: flex-start;
+            }
+
+            .project-image {
+                width: 100px;
+                height: 100px;
+                margin-right: 15px;
+            }
+
+            .project-details {
+                text-align: left;
+                font-size: 1vw;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="background"></div> <!-- Tiled background GIF -->
+    <div class="background"></div>
     <div class="container">
         <h1>Alberto Maria Pepe</h1>
-
-        <p class="phd-title">PhD, University of Cambridge / Applied Sciences Group, Microsoft</p> <!-- Centered title -->
-
+        <p class="phd-title">PhD, University of Cambridge / Applied Sciences Group, Microsoft</p>
         <div class="section-content">
-            <p class="bio">PhD candidate at the University of Cambridge, supervised by Joan Lasenby. Working on Diffusion Models, Hypercomplex Neural Networks and Clifford Algebra. Studied pose estimation, physics models, protein structure prediction, 2D and 3D vision. Fascinated by how machines see, understand and process geometrical objects and spatial transformations. Previously at Microsoft ('22, '24, '25) and Huawei ('23). </p>
+            <p class="bio">
+                PhD candidate at the University of Cambridge, supervised by Joan Lasenby. 
+                Working on Diffusion Models, Hypercomplex Neural Networks, and Clifford Algebra.
+                Previously at Microsoft ('22, '24, '25) and Huawei ('23).
+            </p>
         </div>
-
-           <!-- Experience Section -->
-        <div class="divider"></div> <!-- White line -->
+        
+        <div class="divider"></div>
         <div class="section-title">Experience</div>
         <div class="section-content">
             <ul>
-                <li>
-                    <span class="institution">Microsoft</span> - 
-                    <span class="degree">Remote - May 25 - Jul 25</span>
-                </li>
+                <li><span class="institution">Microsoft</span> - <span class="degree">Remote - May 25 - Jul 25</span></li>
                 <li>Diffusion Models, Applied Sciences Group.</li>
-
-                <li>&nbsp;</li> <!-- Space between institutions -->
-                
-                <li>
-                    <span class="institution">Microsoft</span> - 
-                    <span class="degree">Redmond (WA) - Jun 24 - Sep 24</span>
-                </li>
-                <li>Deep Learning for Geometric Computer Vision, Applied Sciences Group.</li>
-
-                <li>&nbsp;</li> <!-- Space between institutions -->
-
-                <li>
-                    <span class="institution">Huawei</span> - 
-                    <span class="degree">Munich, Germany - Oct 23 - Mar 24</span>
-                </li>
+                <li>&nbsp;</li> 
+                <li><span class="institution">Huawei</span> - <span class="degree">Munich, Germany - Oct 23 - Mar 24</span></li>
                 <li>Computer Vision, Intelligent Cloud Technologies Lab.</li>
-
-                <li>&nbsp;</li> <!-- Space between institutions -->
-                
-                <li>
-                    <span class="institution">Microsoft Research</span> - 
-                    <span class="degree">Cambridge (UK) - Feb 22 - May 22</span>
-                    <li>Machine Learning, Cloud Infrastructure Group</li>
-
-                </li>
             </ul>
         </div>
 
-        
-        <div class="divider"></div> <!-- White line -->
-        
-        
-        <!-- Publications Section -->
+        <div class="divider"></div>
         <div class="section-title">Projects</div>
+        
         <div class="projects-container">
             <img src="fengbo.png" alt="Project Figure" class="project-image">
             <div class="project-details">
-                <div class="institution">Fengbo: a Clifford Neural Operator pipeline for 3D PDEs in Computational Fluid Dynamics</div>
+                <div class="institution">Fengbo: A Clifford Neural Operator for 3D PDEs</div>
                 <div>ICLR 2025, Singapore</div>
-                <div class="thesis"> <a href="https://www.researchgate.net/publication/388313092_Fengbo_a_Clifford_Neural_Operator_pipeline_for_3D_PDEs_in_Computational_Fluid_Dynamics" target="_blank">paper</a> / <a href="https://github.com/albertomariapepe/Fengbo" target="_blank">code</a></div>
-            </div>
-        </div>
-            <div class="projects-container">
-        <img src="torchga.png" alt="Project Figure" class="project-image">
-        <div class="project-details">
-            <div class="institution">Torch-GA: Building Geometric Algebra Networks in PyTorch</div>
-            <a href="https://github.com/albertomariapepe/Torch-GA" target="_blank">code</a>
-        </div>
-    </div>
-    
-    <div class="projects-container">
-        <img src="staresnet.png" alt="Project Figure" class="project-image">
-        <div class="project-details">
-            <div class="institution">STAResNet: A Network in Spacetime Algebra to Solve Maxwell's PDEs</div>
-            <div>AGACSE 2024, Amsterdam</div>
-            <div class="thesis">
-                <a href="https://www.researchgate.net/publication/383383729_STAResNet_A_Network_in_Spacetime_Algebra_to_solve_Maxwell's_PDEs" target="_blank">paper</a> / <a href="https://github.com/albertomariapepe/STAResNet" target="_blank">code</a> / <a href="https://www.researchgate.net/publication/384499378_STAResNet_Slides" target="_blank">slides</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="projects-container">
-        <img src="dpgnn.png" alt="Project Figure" class="project-image">
-        <div class="project-details">
-            <div class="institution">DPGNN: Differentiable Physics-and Geometry-Assisted Network for 2D Flow Estimation</div>
-            <div>AGACSE 2024, Amsterdam [joint work with Huawei]</div>
-            <div class="thesis">
-                <a href="https://www.researchgate.net/publication/380169749_DPGNN_Differentiable_Physics-and_Geometry-Assisted_Neural_Network_in_Clifford_Algebra_for_2D_Flow_Estimation" target="_blank">abstract+poster</a> 
-            </div>
-        </div>
-    </div>
-        
-        <div class="projects-container">
-            <img src="garelu2.png" alt="Project Figure" class="project-image">
-            <div class="project-details">
-                <div class="institution">GA-ReLU: an activation function for Geometric Algebra Networks applied to 2D Navier-Stokes PDEs</div>
-                <div>ICLR 2024, AI4DifferentialEquations in Science, Vienna</div>
-                <div class="thesis"><a href="https://www.researchgate.net/publication/378690694_GA-ReLU_an_activation_function_for_Geometric_Algebra_Networks_applied_to_2D_Navier-Stokes_PDEs" target="_blank">paper</a> / <a href="https://github.com/albertomariapepe/GA-ReLU" target="_blank">code</a> / <a href="https://www.researchgate.net/publication/389582144_GA-ReLU_an_activation_function_for_Geometric_Algebra_Networks_applied_to_2D_Navier-Stokes_PDEs_Poster" target="_blank">poster </a></div>
-            </div>
-        </div>
-        <div class="projects-container">
-            <img src="cgaposenet.png" alt="Project Figure" class="project-image">
-            <div class="project-details">
-                <div class="institution">CGAPoseNet+GCAN: A Geometric Clifford Algebra Network for Geometry-aware Camera Pose Regression</div>
-                <div>WACV 2024, Waikoloa, HI</div>
-                <div class="thesis"> <a href=https://researchgate.net/publication/374944767_CGAPoseNetGCAN_A_Geometric_Clifford_Algebra_Network_for_Geometry-aware_Camera_Pose_Regression" target="_blank">paper</a> / <a href="https://github.com/albertomariapepe/CGAPoseNet-GCAN/tree/main" target="_blank">code</a>  / <a href="https://www.researchgate.net/publication/388921172_CGAPoseNetGCAN_A_Geometric_Clifford_Algebra_Network_for_Geometry-aware_Camera_Pose_Regression_Poster" target="_blank">poster</a> / <a href="https://www.youtube.com/watch?v=OBMUsrOPOAQ" target="_blank">video</a></div>
-            </div>
-        </div>
-        
-        <div class="projects-container">
-            <img src="clifford.png" alt="Project Figure" class="project-image">
-            <div class="project-details">
-                <div class="institution">Clifford Group Equivariant Neural Network Layers for Protein Structure Prediction</div>
-                <div>NLDL 2024, Tromsø</div>
-                <div class="thesis"> <a href=https://www.researchgate.net/publication/375635979_Clifford_Group_Equivariant_Neural_Network_Layers_for_Protein_Structure_Prediction" target="_blank"> paper</a> / <a href="https://github.com/albertomariapepe/Clifford-Equivariant-Layers-for-PSP" target="_blank">code</a>  / <a href=https://www.researchgate.net/publication/388921589_Clifford_Group_Equivariant_Neural_Network_Layers_for_Protein_Structure_Prediction_Poster" target="_blank">poster</a> / <a href=https://www.researchgate.net/publication/376559025_Clifford_Group_Equivariant_Neural_Network_Layers_for_Protein_Structure_Prediction_Slides" target="_blank">slides</a></div>
+                <div><a href="#">paper</a> / <a href="#">code</a></div>
             </div>
         </div>
 
-        
-        <div class="projects-container">
-            <img src="cgaposenet0.png" alt="Project Figure" class="project-image">
-            <div class="project-details">
-                <div class="institution">CGA-PoseNet: Camera Pose Regression via a 1D-Up Approach to Conformal Geometric Algebra</div>
-                <div>ArXiv, 2023</div>
-                <div class="thesis"> <a href="https://www.researchgate.net/publication/368462313_CGA-PoseNet_Camera_Pose_Regression_via_a_1D-Up_Approach_to_Conformal_Geometric_Algebra" target="_blank"> paper</a> / <a href="https://github.com/albertomariapepe/CGA-PoseNet" target="_blank">code</a> </div>
-            </div>
-        </div>
-
-        <div class="projects-container">
-            <img src="modeling.png" alt="Project Figure" class="project-image">
-            <div class="project-details">
-                <div class="institution">Modeling orientational features via geometric algebra for 3D protein coordinates prediction</div>
-                <div>Mathematical Methods in the Applied Sciences, 2023</div>
-                <div class="thesis"> <a href="https://www.researchgate.net/publication/373115376_Modeling_orientational_features_via_geometric_algebra_for_3D_protein_coordinates_prediction" target="_blank"> paper</a></div>
-            </div>
-        </div>
-
-        <div class="projects-container">
-            <img src="poseidonia.png" alt="Project Figure" class="project-image">
-            <div class="project-details">
-                <div class="institution">POSEIDONIA</div>
-                <div>Ancient Future Technology, MIT Media Lab, 2022 [final project] </div>
-                <div class="thesis"> <a href="https://www.ancientfuturetech.org/2022/poseidonia-albertomariapepe" target="_blank"> website</a></div>
-            </div>
-        </div>
-
-        <div class="projects-container">
-            <img src="icacgadetailed.png" alt="Project Figure" class="project-image">
-            <div class="project-details">
-                <div class="institution">Geometric Algebra Models of Proteins for Three-Dimensional Structure Prediction: A Detailed Analysis</div>
-                <div> Advanced Computational Applications of Geometric Algebra, Springer Nature, 2022</div>
-                <div class="thesis"> <a href="https://www.researchgate.net/publication/381134141_Geometric_Algebra_Models_of_Proteins_for_Three-Dimensional_Structure_Prediction_A_Detailed_Analysis" target="_blank"> paper</a></div>
-            </div>
-        </div>
-
-        <div class="projects-container">
-            <img src="engage0.png" alt="Project Figure" class="project-image">
-            <div class="project-details">
-                <div class="institution">Using a Graph Transformer Network to Predict 3D Coordinates of Proteins via Geometric Algebra Modelling</div>
-                <div>CGI 2022, ENGAGE Workshop, Geneva / Lecture Notes in Computer Science</div>
-                <div class="thesis"> <a href="https://www.researchgate.net/publication/370322565_Using_a_Graph_Transformer_Network_to_Predict_3D_Coordinates_of_Proteins_via_Geometric_Algebra_Modelling" target="_blank"> paper</a></div>
-            </div>
-        </div> <!-- Closing the projects-container div -->
-
-        <div class="projects-container">
-            <img src="icacga.png" alt="Project Figure" class="project-image">
-            <div class="project-details">
-                <div class="institution">Geometric Algebra Models of Proteins for Three-Dimensional Structure Prediction</div>
-                <div>ICACGA 2022, Denver, CO</div>
-                <div class="thesis"> <a href="https://www.researchgate.net/publication/364658269_Geometric_Algebra_Models_of_Proteins_for_Three-Dimensional_Structure_Prediction" target="_blank"> paper+slides</a></div>
-            </div>
-        </div> <!-- Closing the projects-container div -->
-
-        <div class="projects-container">
-            <img src="learningrot.png" alt="Project Figure" class="project-image">
-            <div class="project-details">
-                <div class="institution">Learning Rotations</div>
-                <div>Mathematical Methods in the Applied Sciences, 2023 / AGACSE 2021, Brno</div>
-                <div class="thesis"> <a href="https://www.researchgate.net/publication/363475740_Learning_rotations" target="_blank"> paper</a> / <a href="https://github.com/albertomariapepe/Learning-Rotations/blob/main/README.md" target="_blank"> code</a>  </div>
-            </div>
-        </div> <!-- Closing the projects-container div -->
-
-
-            
-     
-           <div class="divider"></div> <!-- White line -->
-        
-        <div class="section-title">Talks</div>
-              <div class="projects-container">
-            <img src="icca.png" alt="Project Figure" class="project-image">
-            <div class="project-details">
-                <div class="institution">Molecular Geometry Optimization through Rotor-based Evolutionary Algorithm</div>
-                <div>ICCA 2023, Holon, Israel [joint work with Scuola Normale Superiore, Pisa, Italy]</div>
-                <div class="thesis"> <a href="https://www.researchgate.net/publication/388921149_Molecular_Geometry_Optimization_through_Rotor-based_Evolutionary_Algorithm_Slides_-_The_13th_International_Conference_on_Clifford_Algebras_and_Their_Applications_in_Mathematical_Physics_ICCA13_Holon_I" target="_blank"> slides</a> </div>
-            </div>
-        </div>
-
-        <div class="projects-container">
-            <img src="brno.png" alt="Project Figure" class="project-image">
-            <div class="project-details">
-                <div class="institution">Geometric Algebra in Protein Structure Prediction</div>
-                <div>Institute of Mathematics, Brno University of Technology, Dec 2021</div>
-                <div class="thesis"> <a href="https://www.researchgate.net/publication/389649225_Geometric_Algebra_in_Protein_Structure_Prediction_Talk_December_2021_Brno_Institute_of_Technology" target="_blank"> slides</a> </div>
-            </div>
-        </div>
-
-     
-        
-        <div class="divider"></div> <!-- White line -->
-        
-        <!-- Education Section -->
-        <div class="section-title">Education</div>
-        <div class="section-content">
-            <ul>
-                <li>
-                    <span class="institution">University of Cambridge</span> - 
-                    <span class="degree">PhD, Oct 20 - May 25</span>
-                </li>
-                <li>Signal Processing & Communications Lab</li>
-                <li class="thesis">Thesis: Machine Learning with Geometric Algebra: Multivectors for Modelling, Estimating and Computing</li>
-                <li>&nbsp;</li> <!-- Space between institutions -->
-                
-                <li>
-                    <span class="institution">Tsinghua - UC Berkeley Shenzhen Institute (TBSI), Shenzhen, China</span> - 
-                    <span class="degree">M.Sc. 18-20</span>
-                </li>
-                <li>Data Science & Information Technology</li>
-                <li class="thesis">Thesis: Machine Learning Approaches to Digital Signal Processing in Optical and Wireless Communication</li>
-                <li>&nbsp;</li> <!-- Space between institutions -->
-                
-                <li>
-                    <span class="institution">Politecnico di Torino, Turin, Italy</span> - 
-                    <span class="degree">B.Sc. 15-18</span>
-                </li>
-                <li>Electronic & Communications Engineering</li>
-                <li>&nbsp;</li> <!-- Space between institutions -->
-                
-                <li>
-                    <span class="institution">Tongji University, Shanghai, China</span> - 
-                    <span class="degree">B.Sc. 16-17</span>
-                </li>
-                <li>Information Technology Engineering</li>
-            </ul>
-        </div>
-
-
-        
-        <div class="divider"></div> <!-- White line -->
-
-        
-        
         <div class="links">
-            <p> <a href="https://scholar.google.com/citations?user=iBfuNo8AAAAJ&hl=en" target="_blank">scholar</a></p>
-            <p> <a href="https://www.researchgate.net/profile/Alberto-Pepe-5?ev=hdr_xprf" target="_blank">researchgate</a></p>
-            <p> <a href="https://www.linkedin.com/in/alberto-maria-pepe-136164124/" target="_blank">linkedin</a></p>
-            <p> <a href="https://github.com/albertomariapepe" target="_blank">github</a></p>
-            <p> <a href="mailto:ap2219@cam.ac.uk">mail</a></p>
-
+            <p><a href="#">GitHub</a></p>
+            <p><a href="#">ResearchGate</a></p>
+        </div>
     </div>
-
-
-
-
-   
-
-    
 </body>
 </html>
