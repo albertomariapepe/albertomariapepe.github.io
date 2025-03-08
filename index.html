@@ -2,148 +2,180 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=1024">
     <link rel="icon" type="image/png" href="amp.png">
     <title>albertomariapepe</title>
     <style>
+        /* Load the custom font */
         @font-face {
             font-family: 'ArcadeClassic';
-            src: url('m42.TTF') format('truetype');
+            src: url('m42.TTF') format('truetype'); /* Ensure the file exists in the repo */
+            font-weight: normal;
+            font-style: normal;
         }
 
         @font-face {
             font-family: 'pixel';
-            src: url('MinecraftStandard.otf') format('opentype');
+            src: url('MinecraftStandard.otf') format('truetype'); /* Ensure the file exists in the repo */
+            font-weight: normal;
+            font-style: normal;
         }
 
+        /* Default styles */
         body {
-            background-color: black;
-            margin: 0;
-            padding: 0;
-            font-family: pixel, sans-serif;
-            color: white;
+            background-color: black; /* Set background color for fallback */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            overflow: auto; /* Allow scrolling */
+            font-family: pixel, sans-serif; /* Ensure pixel is used for the body */
         }
 
+        /* Style for the tiled background */
         .background {
-            background-image: url('galo3.gif');
-            background-repeat: repeat;
-            background-size: contain;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            background-image: url('galo3.gif'); /* Use the GIF as a background image */
+            background-repeat: repeat; /* Tile the background */
+            background-size: contain; /* Ensure the GIF is sized to fit within the div */
+            position: fixed; /* Position the background fixed to the viewport */
+            top: 0; /* Align to the top */
+            left: 0; /* Align to the left */
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            z-index: -1; /* Place behind other elements */
         }
 
+        /* Style for the central text container */
         .container {
-            max-width: 90%;
-            margin: auto;
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 4vw;
-            text-align: center;
+            max-width: 800px; /* Set a max width for the text container */
+            margin: auto; /* Center the container horizontally */
+            background-color: rgba(0, 0, 0, 1); /* Semi-transparent black background */
+            padding: 20px; /* Add padding around text */
+            border-radius: 0; /* No rounded corners */
+            position: relative; /* Position relative for inner content */
+            z-index: 1; /* Bring to front */
+            color: white; /* Text color */
+            display: flex; /* Use flexbox for centering content */
+            flex-direction: column; /* Stack children vertically */
+            justify-content: flex-start; /* Align content to the top */
         }
 
+        /* Style for name with equal padding */
         h1 {
-            font-family: 'ArcadeClassic', sans-serif;
-            font-size: 5vw;
+            font-family: 'ArcadeClassic', sans-serif; /* Use custom font for the name */
+            border: 0px solid white; /* Thinner border */
+            display: inline-block; /* Border wraps around text */
+            padding: 15px; /* Equal padding on all sides */
+            border-radius: 0; /* No rounded edges */
+            font-size: 2vw; /* Adjusted size for responsiveness */
+            text-align: center; /* Center align the name */
         }
 
+        /* Center the PhD text */
         .phd-title {
-            font-size: 3.5vw;
-            margin: 2vw 0;
+            text-align: center; /* Center align */
+            font-size: 1vw; /* Adjusted size for responsiveness */
+            margin: 10px 0; /* Space around the title */
         }
 
+        /* Bio styling */
         .bio {
-            font-size: 3vw;
-            text-align: justify;
-            padding: 2vw;
+            font-size: 0.7vw; /* Smaller font size for the bio */
+            margin: 1px 0; /* Add margin for spacing */
+            text-align: justify; /* Justify align the paragraphs */
         }
 
         a {
-            color: #FF4500;
+            color: #FF4500; /* Reddish-orange color */
             text-decoration: none;
-            font-size: 3vw;
+            font-size: 0.8vw; /* Adjusted size for responsiveness */
         }
 
         a:hover {
             text-decoration: underline;
         }
 
+        /* Style for the white line */
         .divider {
-            width: 100%;
-            height: 2px;
-            background-color: white;
-            margin: 5vw 0;
+            width: 100%; /* Full width */
+            height: 2px; /* Height of the line */
+            background-color: white; /* Color of the line */
+            margin: 5px 0; /* Space around the line */
         }
 
+        /* Style for section titles */
         .section-title {
-            font-family: 'ArcadeClassic', sans-serif;
-            font-size: 4vw;
+            font-family: 'ArcadeClassic', sans-serif; /* Use custom font for the titles */
+            font-size: 1.2vw; /* Size for section titles */
+            text-align: left; /* Left align the section titles */
+            margin: 5px 0; /* Space around section titles */
         }
 
+        /* Style for section content */
         .section-content {
-            font-size: 3vw;
-            text-align: left;
+            font-size: 0.7vw; /* Increased font size for better readability */
+            text-align: left; /* Left align the section content */
+            margin: 10px 0; /* Add margin for spacing */
         }
 
+        /* Style for lists */
         ul {
-            padding: 0;
-            list-style-type: none;
+            margin-left: 20px; /* Indent the list */
+            font-size: 0.7vw; /* Adjusted size for list items */
+            list-style-type: none; /* Remove default list style */
+            padding: 0; /* Remove default padding */
         }
 
+        /* Style for institution names */
         .institution {
-            font-weight: bold;
-            color: #FF4500;
+            font-weight: bold; /* Bold for institution names */
+            font-family: pixel, sans-serif; /* Ensure pixel is used */
+            color: #FF4500; /* Bright, deep red color */
+        }
+
+        /* Style for degrees */
+        .degree {
+            font-weight: normal; /* Normal weight for degrees (not bold) */
+            color: #FF4500; /* Keep the same color */
+        }
+
+        /* Style for thesis titles */
+        .thesis {
+            font-style: normal; /* Italicize thesis titles */
         }
 
         .projects-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3vw;
+            align-items: center; /* Align image and text */
+            margin-bottom: 8px
         }
-
+        
         .project-image {
-            width: 60%;
-            max-width: 200px;
-            height: auto;
-            border: 2px solid #FF4500;
+            width: 100px; /* Adjust size as needed */
+            height: 100px;
+            margin-right: 15px; /* Space between image and text */
+            border: 2px solid #FF4500; /* Thin border with reddish-orange color */
+            padding: 0px; /* Optional: Adds slight spacing inside the border */
         }
-
+                
         .project-details {
-            font-size: 3vw;
-            text-align: center;
+            display: flex;
+            font-size: 0.8vw; /* Adjusted size for list items */
+            flex-direction: column;
+            justify-content: center;
+            
         }
 
+        /* Centered links container */
         .links {
-            margin-top: 3vw;
+            display: flex; /* Use flexbox for layout */
+            justify-content: center; /* Center the links */
+            flex-direction: column; /* Stack links vertically */
+            align-items: center; /* Align items to the center */
+            margin-top: 0px; /* Space above the links */
         }
 
-        @media (min-width: 768px) {
-            .container {
-                max-width: 800px;
-            }
-
-            h1 {
-                font-size: 3vw;
-            }
-
-            .phd-title {
-                font-size: 2vw;
-            }
-
-            .bio, .section-content, .project-details {
-                font-size: 1.5vw;
-            }
-
-            a {
-                font-size: 1.5vw;
-            }
-
-            .section-title {
-                font-size: 2.5vw;
-            }
+        /* Style for individual links */
+        .links p {
+            margin: 0px 0; /* Reduced space between links */
         }
     </style>
 </head>
@@ -416,3 +448,5 @@
     
 </body>
 </html>
+
+this is the whole thing
