@@ -6,22 +6,20 @@
     <link rel="icon" type="image/png" href="amp.png">
     <title>albertomariapepe</title>
     <style>
-        /* Load the custom font */
         @font-face {
             font-family: 'ArcadeClassic';
-            src: url('m42.TTF') format('truetype'); /* Ensure the file exists in the repo */
+            src: url('m42.TTF') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
         @font-face {
             font-family: 'pixel';
-            src: url('MinecraftStandard.otf') format('truetype'); /* Ensure the file exists in the repo */
+            src: url('MinecraftStandard.otf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
-        /* Default styles */
         body {
             background-color: black;
             margin: 0;
@@ -30,7 +28,6 @@
             font-family: pixel, sans-serif;
         }
 
-        /* Style for the tiled background */
         .background {
             background-image: url('galo3.gif');
             background-repeat: repeat;
@@ -43,7 +40,6 @@
             z-index: -1;
         }
 
-        /* Style for the central text container */
         .container {
             max-width: 800px;
             margin: auto;
@@ -57,7 +53,6 @@
             justify-content: flex-start;
         }
 
-        /* Style for name with equal padding */
         h1 {
             font-family: 'ArcadeClassic', sans-serif;
             border: 0px solid white;
@@ -67,7 +62,6 @@
             text-align: center;
         }
 
-        /* Center the PhD text */
         .phd-title {
             text-align: center;
             font-size: 12px;
@@ -75,26 +69,23 @@
             margin-bottom: 8px;
         }
 
-        /* Bio styling */
         .bio {
             font-size: 12px;
             margin: 5px 0;
             text-align: justify;
         }
 
-        /* Links Styling */
         a {
             color: #3399FF;
             text-decoration: none;
-            font-size: 11px; /* Increased font size */
-            margin: 0px 0; /* Reduced spacing */
+            font-size: 11px;
+            margin: 0px 0;
         }
 
         a:hover {
             text-decoration: underline;
         }
 
-        /* Style for the white line */
         .divider {
             width: 100%;
             height: 2px;
@@ -103,7 +94,6 @@
             margin-bottom: 5px;
         }
 
-        /* Style for section titles */
         .section-title {
             font-family: 'ArcadeClassic', sans-serif;
             font-size: 20px;
@@ -111,14 +101,12 @@
             margin: 8px 0;
         }
 
-        /* Style for section content */
         .section-content {
             font-size: 12px;
             text-align: left;
             margin: 8px 0;
         }
 
-        /* Style for lists */
         ul {
             flex-direction: row;
             margin-left: 20px;
@@ -127,102 +115,113 @@
             padding: 0;
         }
 
-        /* Style for institution names */
         .institution {
             font-weight: bold;
             font-family: pixel, sans-serif;
             color: #FF4500;
         }
 
-        /* Style for degrees */
         .degree {
             font-weight: normal;
             color: #FF4500;
         }
 
-        /* Style for thesis titles */
         .thesis {
             font-style: normal;
         }
 
-     .projects-container {
-            display: flex;
-            align-items: center; /* Align image and text */
-            margin-bottom: 8px
-        }
-                
-        .project-details {
-            display: flex;
-            font-size: 10px; /* Adjusted size for list items */
-            flex-direction: column;
-            justify-content: center;
-            
-        }
         .projects-container {
             display: flex;
-            align-items: center; /* Align image and text */
-            margin-bottom: 8px
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 8px;
         }
-        
+
+        .project-details {
+            display: flex;
+            font-size: 10px;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0;
+            flex: 1;
+        }
+
         .project-image {
-            width: 100px; /* Adjust size as needed */
+            width: 100px;
             height: 100px;
-            margin-right: 15px; /* Space between image and text */
-            border: 2px solid #FF4500; /* Thin border with reddish-orange color */
-            padding: 0px; /* Optional: Adds slight spacing inside the border */
+            margin-right: 15px;
+            border: 2px solid #FF4500;
+            padding: 0px;
+            flex-shrink: 0;
         }
+
         .main-image {
-            width: 150px; /* Adjust size as needed */
+            width: 150px;
             height: 150px;
             display: block;
             margin-left: auto;
             margin-right: auto;
             margin-top: 6px;
-            border: 2px solid #FF4500; /* Thin border with reddish-orange color */
-            padding: 0px; /* Optional: Adds slight spacing inside the border */
-        }
-                
-        .project-details {
-            display: flex;
-            font-size: 10px; /* Adjusted size for list items */
-            flex-direction: column;
-            justify-content: center;
-            
+            border: 2px solid #FF4500;
+            padding: 0px;
         }
 
-        /* Centered links container */
         .links {
-            display: flex;               /* Use flexbox for layout */
-            justify-content: center;     /* Center the links horizontally */
-            flex-direction: row;         /* Arrange links in a row */
-            flex-wrap: wrap;         /* Allow wrapping to avoid overflow */
-            align-items: center;         /* Align items vertically in the center */
-            gap: 6rem;                   /* Optional: space between links */
-            margin-top: 0px;             /* Keep top margin */
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6rem;
+            margin-top: 0px;
             margin-bottom: 0px;
         }
 
-        /* Style for individual links */
         .links p {
-            margin: 0px 0; /* Reduced space between links */
+            margin: 0px 0;
         }
 
         .edu-exp-container {
             display: flex;
+            flex-wrap: wrap;
             align-items: flex-start;
             margin-bottom: 20px;
+            gap: 15px;
         }
-        
+
         .edu-exp-details {
             display: flex;
             flex-direction: column;
             font-size: 12px;
             color: white;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .projects-container,
+            .edu-exp-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .project-image,
+            .main-image {
+                width: 100%;
+                height: auto;
+                margin: 0 auto;
+                margin-bottom: 10px;
+            }
+
+            .links {
+                flex-direction: column;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
-
 <body>
+
     <div class="background"></div> <!-- Tiled background GIF -->
     <div class="container">
         <h1>Alberto Maria Pepe</h1>
