@@ -225,7 +225,7 @@
             }
 
             .links {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 1rem;
             }
 
@@ -235,13 +235,31 @@
             }
             
             @media screen and (max-width: 600px) {
-            .project-details {
+              .project-image,
+              .main-image {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+              }
+            
+              .main-image {
+                width: 150px;
+                height: 150px;
+              }
+            
+              .projects-container {
+                flex-direction: row !important; /* ← Force row layout */
+                align-items: flex-start;
+              }
+            
+              .project-details {
                 font-size: 10px;
-            }
-        
-            .bio {
-                font-size: 11px;
-                line-height: 1.4;
+              }
+            
+              .links {
+                flex-direction: column;
+                gap: 1rem;
+              }
             }
 
         }
